@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddSong from "./components/AddSong";
+import HomePage from "./components/HomePage";
+import LoginPage from "./components/LoginPage";
+import TopArtists from "./components/TopArtists";
+import TopSongs from "./components/TopSongs";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/top-10-artists" element={<TopArtists />} />
+        <Route path="/top-10-songs" element={<TopSongs />} />
+        <Route path="/add-song" element={<AddSong />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
